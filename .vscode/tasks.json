@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-g",
+        // "-O3",
+        "-march=native",
+        "-flto",
+        // "-DDISABLE_VOWEL_OPTIMIZATION",
+        // "-DDISABLE_MULTITHREAD_OPTIMIZATION",
+        // "-DDISABLE_PERMUTATION_DEDUP",
+        // "-DDISABLE_RARITY_SORT",
+        // "-DDISABLE_PRUNING",
+        "-DNO_PRINT",
+        "src/worst-wordle.cpp",
+        "-o",
+        "worst-wordle.out"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}
