@@ -279,7 +279,7 @@ It is significantly faster to store these sets as a [`std::bitset<26>`](https://
 To check for letter overlap, the unordered set requires checking every letter of one set against every letter of the other set.
 For 5-letter words, this results in 5\*5=25 letter checks in the worst case, as well as the creation of 2 new unordered sets, one for each word in a 2-way comparison.
 
-With a bitset, we can check for bit overlaps using a single [bitwise AND](https://en.cppreference.com/w/cpp/language/operator_arithmetic.html) operation and checking if any bits are still set in the result.
+With a bitset, we can check for bit overlaps using a single [bitwise AND](https://en.cppreference.com/w/cpp/language/operator_arithmetic.html) operation, then check if any bits are still set in the result.
 Since the hot path of our code spends most of its time doing letter overlap checks, this is a significant performance optimization, though I have not validated the speedup from this change.
 
 ### Pass partially built solutions by reference
@@ -287,7 +287,7 @@ Since the hot path of our code spends most of its time doing letter overlap chec
 In prior versions of my code, I treated all partially built solutions as const references.
 To pass them into each recursive call of the DFS, I needed to make a copy with the modifications applied.
 In profiling, I found that the construction and destruction of these copies dominated run time.
-If I instead pass the partial results in by reference, adding the guess as I traverse down and removing it as I backtrack up, the need to make copies at every level disappears.
+If I instead pass the partial results in by reference, adding the guess as I traverse down and removing it as I backtrack up, I no longer need to make copies at each branch.
 This results in a 3x speedup in my testing.
 
 ## Total performance gain
