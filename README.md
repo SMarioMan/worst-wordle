@@ -247,7 +247,7 @@ In experimental testing, the letter frequency sort was found to provide a 1.15x 
 
 colinbaker5306 made an interesting observation to prune the word list even more dramatically, first noting that there are 6 vowels in the English language, `A`, `E`, `I`, `O`, `U`, and `Y`, then noting that all of the words in the answer list contain vowels:
 
->There are only 6 legal guesses that have no vowels (`crwth`, `cwtch`, `grrls`, `grrrl`, `pfftt`, `phpht`) and as we are looking for 7 word groups (the answer and the 6 guesses) any solution must include at least one of them, so we can set all the starting words to just one of those
+>There are only 6 legal guesses that have no vowels (`CRWTH`, `CWTCH`, `GRRLS`, `GRRRL`, `PFFTT`, `PHPHT`) and as we are looking for 7 word groups (the answer and the 6 guesses) any solution must include at least one of them, so we can set all the starting words to just one of those
 
 This improves our O(A\*G^6) run time into an O(A\*6\*G^5) time.
 In principle, this will make the algorithm 2,158x faster on a guess list of 12,947 words.
@@ -350,10 +350,10 @@ An example would be: `g++ -std=c++17 -Wall -Wextra -pedantic -O3 -march=native -
     - Picking any one of these will result in a successful, perfectly bad Wordle game 19 times out of every 2309 games, or **0.8%** of the time.
 
 One set of optimal guesses:
-- Guesses: phpht, gynny, qajaq, immix, susus, cocco
+- Guesses: `PHPHT`, `GYNNY`, `QAJAQ`, `IMMIX`, `SUSUS`, `COCCO`
 
 Which will result in perfectly bad Wordle games for the following solutions:
-- Answers: belle, bevel, bezel, bleed, breed, defer, delve, dwell, elder, fever, fewer, freed, freer, level, lever, rebel, refer, revel, verve
+- Answers: `BELLE`, `BEVEL`, `BEZEL`, `BLEED`, `BREED`, `DEFER`, `DELVE`, `DWELL`, `ELDER`, `FEVER`, `FEWER`, `FREED`, `FREER`, `LEVEL`, `LEVER`, `REBEL`, `REFER`, `REVEL`, `VERVE`
 
 ## Full list of answer words with "perfectly bad" Wordle scores
 
