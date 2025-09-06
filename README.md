@@ -173,7 +173,7 @@ On my machine, this makes the entire algorithm about 12x faster than the sequent
 
 In Version 4, every guess word is checked at every level of the DFS.
 In a "perfectly bad" game of wordle, the order of the guesses doesn't matter, so we should trim out those duplicates.
-For instance, `babka`, `deeve`, `grrrl`, `jinni`, `phpht`, `sowff` vs. `sowff`, `phpht`, `jinni`, `grrrl`, `deeve`, `babka` report the guesses in a different order but can be viewed as equivalent solutions.
+For instance, `BABKA`, `DEEVE`, `GRRRL`, `JINNI`, `PHPHT`, `SOWFF` vs. `SOWFF`, `PHPHT`, `JINNI`, `GRRRL`, `DEEVE`, `BABKA` report the guesses in a different order but can be viewed as equivalent solutions.
 
 To eliminate these duplicates, we can, at every level of the DFS, only check in lower levels for words that come after the parent guess from the sorted guess words list.
 This changes the run time required to generate all of the guess lists from a 6th degree polynomial to a 6th degree [triangular](https://en.wikipedia.org/wiki/Triangular_number) run time, making the whole design about 32x faster in principle (but 55x faster when validated experimentally).
