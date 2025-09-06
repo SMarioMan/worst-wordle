@@ -128,7 +128,7 @@ This version makes the following optimizations:
 
 ### Only test for "perfectly wrong" solutions
 
-This simplifies and accelerates the checking logic significantly, as we only have to compare the used letters set against the list of letters being used in the current word being evaluated.
+This simplifies and accelerates the checking logic significantly, as we only have to compare the used letters set against the list of letters in the current word being evaluated.
 We can throw out all of the hard mode Wordle logic.
 This means we will not find the optimal guess for every answer, but we will find a list of words that have perfect answers.
 
@@ -166,8 +166,7 @@ By using this approach, danzibob9452 found at least 6 answers with perfect score
 
 Version 4 provided no clear path to parallelizing the search.
 In Version 3, it was trivial to parallelize on the answers list.
-In Version 5, we parallelize on the first level of the DFS.
-We use one thread for each and leave it to the OS thread scheduler to assign them to CPU cores.
+In Version 5, we parallelize on the first level of the DFS, assigning each unit of work to threads via a thread pool.
 On my machine, this makes the entire algorithm about 12x faster than the sequential approach.
 
 ### Pruning by eliminating permutations
