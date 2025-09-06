@@ -813,7 +813,7 @@ The output structure is of the form `[ANSWER]`: `[GUESS]`, `[GUESS]`, `[GUESS]`,
 - `WRUNG`: `PHPHT`, `ABAKA`, `COMMO`, `FEEZE`, `VIVID`, `XYLYL` (3649 solutions)
 - `WRYLY`: `PHPHT`, `ABACA`, `DOGGO`, `SUSUS`, `EXEEM`, `JINNI` (38475 solutions)
 
-## Complete list of perfect solutions acievable with more than 6 guesses:
+## Complete list of perfect solutions achievable with more than 6 guesses:
 
 - `CIVIC`: `GRRRL`, `PHPHT`, `WYNNS`, `KUDZU`, `EXEME`, `BOFFO`, `QAJAQ`
 - `CIVIC`: `GRRRL`, `PHPHT`, `WYNNS`, `KUDZU`, `EXEEM`, `BOFFO`, `QAJAQ`
@@ -822,4 +822,4 @@ The output structure is of the form `[ANSWER]`: `[GUESS]`, `[GUESS]`, `[GUESS]`,
 
 - Investigate the segmentation fault that occurs when disabling the vowel optimization but keeping multi-threading enabled.
 The issue seemingly stems from unsafe access to multimap iterators.
-- Optimize file I/O performance, which seemingly dominates the overall run time.
+- Optimize file I/O performance, which currently dominates the overall run time.
